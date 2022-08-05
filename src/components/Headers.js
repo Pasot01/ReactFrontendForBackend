@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Box, Tabs, Tab } from '@mui/material';
+import { Link } from "react-router-dom";
 
-export const Headers = () => {
+const Header = () => {
     const [value, setValue] = useState();
     return (
-        <AppBar>
+        // sticky place le composant appellé en dessous du header
+        <AppBar position='sticky'>
             <Toolbar>
                 <Typography variant='h3'>MernAuth</Typography>
                 <Box sx={{ marginLeft: 'auto' }}>
@@ -14,11 +16,18 @@ export const Headers = () => {
                         value={value}
                         textColor='inherit'
                     >
-                        <Tab label='Login' />
-                        <Tab label='Signup' />
+                        <Tab to="/login" LinkComponent={Link} label="Login" />
+                        <Tab to="/signup" LinkComponent={Link} label="Signup" />
                     </Tabs>
                 </Box>
             </Toolbar>
         </AppBar>
     )
 }
+
+export default Header
+
+
+
+
+

@@ -1,11 +1,25 @@
+import React from 'react';
+import { Route, Routes } from "react-router-dom";
 import './App.css';
-import { Headers } from './components/Headers';
+import Header from './components/Headers';
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Welcome from "./components/Welcome";
 
 function App() {
   return (
-    <div>
-      <Headers />
-    </div>
+    <React.Fragment>
+      <header>
+        <Header />
+      </header>
+      <main>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/user" element={<Welcome />} />
+        </Routes>
+      </main>
+    </React.Fragment>
   );
 }
 
